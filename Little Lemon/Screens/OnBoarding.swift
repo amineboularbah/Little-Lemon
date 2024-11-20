@@ -11,6 +11,7 @@ import SwiftUI
 let kFirstName = "first_name_key"
 let kLastName = "last_name_key"
 let kEmail = "email_key"
+let kIsLoggedIn = "is_logged_in_key" // New constant for login status
 
 
 struct OnBoarding: View {
@@ -46,6 +47,7 @@ struct OnBoarding: View {
                         UserDefaults.standard.set(firstName, forKey: kFirstName)
                         UserDefaults.standard.set(lastName, forKey: kLastName)
                         UserDefaults.standard.set(email, forKey: kEmail)
+                        UserDefaults.standard.set(true, forKey: kIsLoggedIn)
 
                         // Navigate to Home
                         isLoggedIn = true
@@ -62,6 +64,11 @@ struct OnBoarding: View {
             // Navigation destination tied to the isLoggedIn state
             .navigationDestination(isPresented: $isLoggedIn) {
                 Home() // Destination view
+            }
+            .onAppear {
+                if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
+                    isLoggedIn = true
+                }
             }
         }
     }

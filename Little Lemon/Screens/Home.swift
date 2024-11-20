@@ -14,8 +14,8 @@ struct Home: View {
                 Label("Menu", systemImage: "list.dash")
             })
             
-            Text("Settings").font(.title).tabItem({
-                Label("Settings", systemImage: "menucard")
+            UserProfile().tabItem({
+                Label("Profile", systemImage: "square.and.pencil")
             })
 
         }.navigationBarBackButtonHidden(true)
