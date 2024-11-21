@@ -6,7 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		67572D1C2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */; };
+		67572D412CEF5684002014C3 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */; };
+		67572D422CEF5684002014C3 /* Dish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		67572D1B2CEF5313002014C3 /* LittleLemonDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleLemonDB.xcdatamodel; sourceTree = "<group>"; };
+		67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		67881C732CEE5A9400A2EF1D /* Little Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Lemon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +41,9 @@
 		67881C6A2CEE5A9400A2EF1D = {
 			isa = PBXGroup;
 			children = (
+				67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */,
+				67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */,
+				67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */,
 				67881C752CEE5A9400A2EF1D /* Little Lemon */,
 				67881C742CEE5A9400A2EF1D /* Products */,
 			);
@@ -119,6 +131,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67572D1C2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld in Sources */,
+				67572D412CEF5684002014C3 /* Dish+CoreDataProperties.swift in Sources */,
+				67572D422CEF5684002014C3 /* Dish+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +337,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				67572D1B2CEF5313002014C3 /* LittleLemonDB.xcdatamodel */,
+			);
+			currentVersion = 67572D1B2CEF5313002014C3 /* LittleLemonDB.xcdatamodel */;
+			path = LittleLemonDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 67881C6B2CEE5A9400A2EF1D /* Project object */;
 }
