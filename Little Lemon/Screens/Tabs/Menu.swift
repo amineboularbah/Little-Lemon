@@ -10,6 +10,8 @@ import SwiftUI
 struct Menu: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var hasLoadedData = false
+    @State private var searchText: String = ""
+    
     var body: some View {
         VStack(spacing: 10){
             Text("Little Lemon").font(.largeTitle)
@@ -17,8 +19,11 @@ struct Menu: View {
             Text("This is a simple app to learn SwiftUI. it is about a restaurant called little lemon. we will be showing the menu and other stuff. We will be applying what we have learned")
                 .font(.body)
                 .multilineTextAlignment(.center)
+            TextField("Search menu", text: $searchText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             
-            FetchedObjects(predicate: NSPredicate(value: true), sortDescriptors: []) { (dishes: [Dish]) in
+            FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                         List {
                             ForEach(dishes, id: \.self) { dish in
                                 NavigationLink(destination: DishDetails(dish: dish)){
@@ -58,8 +63,14 @@ struct Menu: View {
                 }
             }
     }
-    
-    
+    func buildPredicate() -> NSPredicate {
+        return searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "title CONTAINS[c] %@", searchText)
+    }
+     func buildSortDescriptors() -> [NSSortDescriptor] {
+        return [
+            NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        ]
+    }
     
     // Method to fetch menu data
     func getMenuData() {
