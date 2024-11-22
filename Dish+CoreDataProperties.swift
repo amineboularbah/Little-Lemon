@@ -2,7 +2,7 @@
 //  Dish+CoreDataProperties.swift
 //  Little Lemon
 //
-//  Created by Amine on 21/11/2024.
+//  Created by Amine on 22/11/2024.
 //
 //
 
@@ -19,6 +19,8 @@ extension Dish {
     @NSManaged public var image: String?
     @NSManaged public var price: String?
     @NSManaged public var title: String?
+    @NSManaged public var category: String?
+    @NSManaged public var dishDescription: String?
 
 }
 

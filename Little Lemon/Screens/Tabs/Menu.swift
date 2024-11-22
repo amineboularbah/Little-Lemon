@@ -24,32 +24,15 @@ struct Menu: View {
                 .padding()
             
             FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
-                        List {
+                ScrollView {
                             ForEach(dishes, id: \.self) { dish in
                                 NavigationLink(destination: DishDetails(dish: dish)){
-                                    HStack {
-                                        AsyncImage(url: URL(string: dish.image ?? "")) { phase in
-                                            switch phase {
-                                            case .empty:
-                                                ProgressView()
-                                            case .success(let image):
-                                                image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 50, height: 50)
-                                                    .clipShape(Circle())
-                                            case .failure:
-                                                Image(systemName: "photo")
-                                            @unknown default:
-                                                EmptyView().frame(width: 50, height: 50)
-                                            }
-                                        }
-                                        Text("\(dish.title ?? "")")
-                                        Spacer()
-                                        Text("$\(dish.price ?? "")")
-                                       
-                                        
-                                    }
+                                    DishCard(
+                                        title: dish.title ?? "",
+                                        description: dish.dishDescription ?? "",
+                                        price: dish.price ?? "0",
+                                        imageURL: dish.image ?? ""
+                                    )
                                 }.navigationTitle("Menu")
                             }
                         }
@@ -77,27 +60,49 @@ struct Menu: View {
         // Clear the database before fetching new data
         PersistenceController.shared.clear()
         
-        let serverURLString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json" // Replace with actual URL
-        guard let url = URL(string: serverURLString) else { return }
+        let serverURLString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
+        guard let url = URL(string: serverURLString) else {
+            print("Invalid URL.")
+            return
+        }
         
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
+            if let error = error {
+                print("Error fetching menu data: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received.")
+                return
+            }
+            
+            do {
                 let decoder = JSONDecoder()
-                if let menuList = try? decoder.decode(MenuList.self, from: data) {
+                let menuList = try decoder.decode(MenuList.self, from: data)
+                
+                // Perform Core Data operations on the main thread
+                DispatchQueue.main.async {
                     for menuItem in menuList.menu {
                         let dish = Dish(context: viewContext) // Create new Dish object
                         dish.title = menuItem.title
                         dish.image = menuItem.image
                         dish.price = menuItem.price
+                        dish.category = menuItem.category
+                        dish.dishDescription = menuItem.description
                     }
-                    try? viewContext.save() // Save to Core Data
-                } else {
-                    print("Failed to decode JSON.")
+                    
+                    do {
+                        try viewContext.save() // Save to Core Data
+                        print("Menu data saved successfully.")
+                    } catch {
+                        print("Failed to save menu data: \(error.localizedDescription)")
+                    }
                 }
-            } else if let error = error {
-                print("Error fetching menu data: \(error.localizedDescription)")
+            } catch {
+                print("Failed to decode JSON: \(error.localizedDescription)")
             }
         }
         

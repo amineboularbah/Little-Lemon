@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		67572D1C2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */; };
-		67572D412CEF5684002014C3 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */; };
-		67572D422CEF5684002014C3 /* Dish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */; };
+		67C51EE52CF0BBC300688BE2 /* Dish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C51EE32CF0BBC300688BE2 /* Dish+CoreDataClass.swift */; };
+		67C51EE62CF0BBC300688BE2 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C51EE42CF0BBC300688BE2 /* Dish+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		67572D1B2CEF5313002014C3 /* LittleLemonDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleLemonDB.xcdatamodel; sourceTree = "<group>"; };
-		67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataClass.swift"; sourceTree = "<group>"; };
-		67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		67881C732CEE5A9400A2EF1D /* Little Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Lemon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67C51EE32CF0BBC300688BE2 /* Dish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		67C51EE42CF0BBC300688BE2 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,8 +51,8 @@
 		67881C6A2CEE5A9400A2EF1D = {
 			isa = PBXGroup;
 			children = (
-				67572D3F2CEF5684002014C3 /* Dish+CoreDataClass.swift */,
-				67572D402CEF5684002014C3 /* Dish+CoreDataProperties.swift */,
+				67C51EE32CF0BBC300688BE2 /* Dish+CoreDataClass.swift */,
+				67C51EE42CF0BBC300688BE2 /* Dish+CoreDataProperties.swift */,
 				67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */,
 				67881C752CEE5A9400A2EF1D /* Little Lemon */,
 				67881C742CEE5A9400A2EF1D /* Products */,
@@ -146,8 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				67572D1C2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld in Sources */,
-				67572D412CEF5684002014C3 /* Dish+CoreDataProperties.swift in Sources */,
-				67572D422CEF5684002014C3 /* Dish+CoreDataClass.swift in Sources */,
+				67C51EE52CF0BBC300688BE2 /* Dish+CoreDataClass.swift in Sources */,
+				67C51EE62CF0BBC300688BE2 /* Dish+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

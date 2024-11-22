@@ -24,7 +24,9 @@ struct DishCard: View {
                 Text(description)
                     .font(.subheadline)
                     .foregroundColor(AppColors.greenDark)
-                    .lineLimit(2) // Truncate after 2 lines
+                    .lineLimit(3)
+                    .frame(alignment: .leading)
+                    
 
                 Text("$\(price)")
                     .font(.body)
@@ -55,7 +57,6 @@ struct DishCard: View {
                 }
             }
         }
-        .padding()
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2) // Add subtle shadow
