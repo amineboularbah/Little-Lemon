@@ -22,6 +22,7 @@ struct AppTextField: View {
             Text(labelText)
                 .font(.caption)
                 .foregroundColor(labelColor)
+                .onboardingTextStyle()
             TextField(placeholder, text: $text)
                 .padding(10)
                 .background(backgroundColor)

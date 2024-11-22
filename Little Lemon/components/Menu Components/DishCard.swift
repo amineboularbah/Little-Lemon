@@ -24,7 +24,7 @@ struct DishCard: View {
                 Text(description)
                     .font(.subheadline)
                     .foregroundColor(AppColors.greenDark)
-                    .lineLimit(3)
+                    .lineLimit(2)
                     .frame(alignment: .leading)
                     
 
@@ -57,9 +57,6 @@ struct DishCard: View {
                 }
             }
         }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2) // Add subtle shadow
     }
 }
 

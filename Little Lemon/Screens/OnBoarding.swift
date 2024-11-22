@@ -19,30 +19,33 @@ struct OnBoarding: View {
     @State var lastName: String = ""
     @State var email:String = ""
     @State var isLoggedIn: Bool = false
+    @State var isKeyboardVisible = false
+    @State var contentOffset: CGSize = .zero
     
     var body: some View {
         // Wrap the entire view inside a NavigationStack
         NavigationStack {
             ScrollView() {
                 VStack(alignment: .leading) {
-                    // Logo at the top
-                    Image("LittleLemonLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 150) // Adjust height to fit
-                        .padding(.bottom, 20)
-                    Text("Subscribe to get started").font(.title)
-                    // Text Fields
-                    AppTextField(text: $firstName, labelText: "First Name", placeholder: "Ex: John")
-                    
-                    AppTextField(text: $lastName, labelText: "Last Name", placeholder: "Ex: Doe")
-                    
-                    AppTextField(text: $email, labelText: "Email", placeholder: "Ex: johndoe@example.com")
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                    
-                    
+                    Header()
+                    Hero()
+                        .padding()
+                        .background(AppColors.greenDark)
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                    VStack{
+                        Text("Subscribe to get started").font(.title)
+                        // Text Fields
+                        AppTextField(text: $firstName, labelText: "First Name", placeholder: "Ex: John")
+                        
+                        AppTextField(text: $lastName, labelText: "Last Name", placeholder: "Ex: Doe")
+                        
+                        AppTextField(text: $email, labelText: "Email", placeholder: "Ex: johndoe@example.com")
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                        
+                        
+                    }.padding()
                     
                     // Centered Button
                     HStack {
@@ -60,7 +63,7 @@ struct OnBoarding: View {
                         Spacer() // Balance the alignment
                     }
                 }
-                .padding()
+                
                 .frame(maxHeight: .infinity, alignment: .top)
                 // Navigation destination tied to the isLoggedIn state
                 .navigationDestination(isPresented: $isLoggedIn) {
@@ -71,6 +74,7 @@ struct OnBoarding: View {
                         isLoggedIn = true
                     }
                 }
+                .navigationBarBackButtonHidden(true)
             }
         }
     }
