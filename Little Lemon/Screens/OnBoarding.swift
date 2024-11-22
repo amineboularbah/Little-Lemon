@@ -62,7 +62,7 @@ struct OnBoarding: View {
                     HStack {
                         Spacer() // Push the button to the center
                         PrimaryButton(
-                            isActive: $isLoggedIn,
+                            isActive: .constant(true),
                             text: "Subscribe",
                             onTap:{
                                 print("Button tapped!")
