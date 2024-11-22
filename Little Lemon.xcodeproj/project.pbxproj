@@ -25,6 +25,16 @@
 			path = "Little Lemon";
 			sourceTree = "<group>";
 		};
+		67C51EC52CF0989800688BE2 /* components */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = components;
+			sourceTree = "<group>";
+		};
+		67C51ECD2CF09F0700688BE2 /* Theme */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Theme;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +56,8 @@
 				67572D1A2CEF5313002014C3 /* LittleLemonDB.xcdatamodeld */,
 				67881C752CEE5A9400A2EF1D /* Little Lemon */,
 				67881C742CEE5A9400A2EF1D /* Products */,
+				67C51EC52CF0989800688BE2 /* components */,
+				67C51ECD2CF09F0700688BE2 /* Theme */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +86,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				67881C752CEE5A9400A2EF1D /* Little Lemon */,
+				67C51EC52CF0989800688BE2 /* components */,
+				67C51ECD2CF09F0700688BE2 /* Theme */,
 			);
 			name = "Little Lemon";
 			packageProductDependencies = (
