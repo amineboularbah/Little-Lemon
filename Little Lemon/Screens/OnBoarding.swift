@@ -11,13 +11,20 @@ import SwiftUI
 let kFirstName = "first_name_key"
 let kLastName = "last_name_key"
 let kEmail = "email_key"
-let kIsLoggedIn = "is_logged_in_key" // New constant for login status
+let kIsLoggedIn = "is_logged_in_key"
+let kPhoneNumber = "phone number key"
+
+let kOrderStatuses = "order statuses key"
+let kPasswordChanges = "password changes key"
+let kSpecialOffers = "special offers key"
+let kNewsletter = "news letter key"
 
 
 struct OnBoarding: View {
     @State var firstName:String = ""
     @State var lastName: String = ""
     @State var email:String = ""
+    @State var phoneNumber:String = ""
     @State var isLoggedIn: Bool = false
     @State var isKeyboardVisible = false
     @State var contentOffset: CGSize = .zero
@@ -40,6 +47,10 @@ struct OnBoarding: View {
                         AppTextField(text: $lastName, labelText: "Last Name", placeholder: "Ex: Doe")
                         
                         AppTextField(text: $email, labelText: "Email", placeholder: "Ex: johndoe@example.com")
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                        AppTextField(text: $phoneNumber, labelText: "Phone Number", placeholder: "Ex: (555) 555-1234")
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)

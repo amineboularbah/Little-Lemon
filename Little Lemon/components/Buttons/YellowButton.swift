@@ -11,22 +11,23 @@ struct YellowButton: View {
     @Binding var isActive: Bool
     let text: String
     let onTap : (() -> Void)?
-    let height: CGFloat = 50
-    let width: CGFloat = 150
+    
     var body: some View {
         Button(action: {
             onTap!()
         }){
             Text(text)
                 .padding(8)
-                .font(.title3)
+                
                 .bold()
+                .frame(maxWidth: .infinity)
                 
         }
         .disabled(!isActive)
-        .frame(width: width, height: height)
         .background(AppColors.yellow.cornerRadius(8))
         .foregroundColor(AppColors.black)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .frame(maxWidth: .infinity) // Use maxWidth for full width
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(AppColors.orange, lineWidth: 1 ))

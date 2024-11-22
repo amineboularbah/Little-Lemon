@@ -21,17 +21,17 @@ struct PrimaryButton: View {
         }){
             Text(text)
                 .padding(8)
-                .font(.title3)
+                
                 .bold()
                 
         }
-        .disabled(isActive)
+        .disabled(!isActive)
         .frame(width: width ?? 150, height: height ?? 45)
-        .background((!isActive ? AppColors.greenDark : AppColors.lightGray).cornerRadius(8))
-        .foregroundColor(!isActive ? AppColors.white : AppColors.greenDark)
+        .background((isActive ? AppColors.greenDark : AppColors.lightGray).cornerRadius(8))
+        .foregroundColor(isActive ? AppColors.white : AppColors.greenDark)
     }
 }
 
 #Preview {
-    PrimaryButton(isActive: .constant(false), text: "Click Me", onTap: nil, width: nil, height: nil)
+    PrimaryButton(isActive: .constant(true), text: "Click Me", onTap: nil, width: nil, height: nil)
 }

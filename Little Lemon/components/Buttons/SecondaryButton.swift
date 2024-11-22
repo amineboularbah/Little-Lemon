@@ -11,19 +11,19 @@ import SwiftUI
 struct SecondaryButton: View {
     let text: String
     let onTap : (() -> Void)?
-    let height: CGFloat = 50
-    let width: CGFloat = 150
+    let width: CGFloat?
+    let height: CGFloat?
     var body: some View {
         Button(action: {
             onTap!()
         }){
             Text(text)
                 .padding(8)
-                .font(.title3)
+                
                 .bold()
                 
         }
-        .frame(width: width, height: height)
+        .frame(width: width ?? 100, height: height ?? 50)
         .foregroundColor(AppColors.greenDark)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
@@ -33,5 +33,5 @@ struct SecondaryButton: View {
 }
 
 #Preview {
-    SecondaryButton(text: "Click Me", onTap: nil)
+    SecondaryButton(text: "Click Me", onTap: nil, width: nil, height: nil)
 }
