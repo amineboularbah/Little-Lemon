@@ -42,9 +42,10 @@ To run the app locally:
 
 ---
 
-## 📜 Certification  
+## 📜 Certification   
 
-Almost there! Stay tuned for updates as I continue developing and enhancing this app.  
+- [iOS Developer Professional Certificate (Meta, 2024)](https://coursera.org/verify/professional-cert/78GNB17YLC98)
+- [React Native Certificate (Meta, 2024)](https://coursera.org/verify/NXWJ4OHRRCJN)  
 
 ---
 
